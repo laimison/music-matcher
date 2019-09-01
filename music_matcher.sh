@@ -78,7 +78,8 @@ do
   then
     echo "Found: `cat /tmp/tracks.temp | head -n 1`" | tee -a /tmp/tracks.found
   else
-    echo "$track" >> /tmp/tracks.not.found
+    # From DOS to Linux
+    echo "$track" | tr -d '\015' >> /tmp/tracks.not.found
   fi
 done < /tmp/tracks.corrected
 
